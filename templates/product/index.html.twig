@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+   
+    {% include "navbar.html.twig" %}
+    
+    <div class="main">
+
+        {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %} 
+
+        <div class="articles" style="grid-row:1 ;">
+
+        <div class="product-main">
+
+            <div class="product-imgblock">
+                <img src="{{product[0].img}}" alt="image of product" class="img-fluid">
+            </div>
+
+            <div class="product-descBlock">
+                <div class="product-header">
+                    <h2>{{product[0].title}}</h2>
+                    <p>Bought {{product[0].countSold}} times!</p>
+                    <hr>
+                </div>
+            
+                <div class="product-description mt-3">
+                    <p>Current Price: <h2>{{product[0].price | price}}$ </h2></p>
+                    <p>{{product[0].description}} </p>
+                    <a class="btn" href="{{path('cart_add',{'id': product[0].id})}}">Add to cart</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    {# <div class="container">
+        <div class="row d-flex justify-content-center mt-4">
+            <h2>{{product[0].title}}</h2>
+        </div>
+        <div class="row d-flex justify-content-center">
+            {% for product in product %}
+            <div class="col-4 mt-4">
+                <div class="card" style="max-width: 20rem;">
+                    <div class="card-header"><img class="img-fluid" src={{product.img}} alt="picture of product"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{product.title}} - {{product.price | price}}$</h4>
+                        <p class="card-text">{{product.description}}</p>
+                    </div>
+                </div> 
+            </div> 
+            {% endfor %}
+        </div>
+    </div> #}
+
+{% endblock %}

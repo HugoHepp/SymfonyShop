@@ -1,0 +1,425 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap');
+
+
+body
+{
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+h1{
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+}
+
+p
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+#brand
+{
+    width: 205px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 41px;
+    color: teal;
+}
+
+#navbar
+{
+    height: 94px;
+    background: #FAF9F9;
+}
+
+.navbar-brand{
+    font-family: 'Raleway', sans-serif;
+}
+
+.navbar-item
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 26px;
+    margin-left: 25px;
+    color: #343a40 !important;
+
+}
+.form-search
+{
+    width: 315px;
+    height: 45px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 16px 0 0 16px;
+    margin: 0;
+    padding-left: 5%;
+
+}
+
+.btn
+{
+    background: #e07a5f !important;
+    border-radius: 30px !important;
+    border: none !important;
+    color: white;
+}
+
+.btn-detail
+{
+    background: teal !important;
+    border-radius: 30px !important;
+    border: none !important;
+    color: white;
+  
+}
+
+.form-search-button
+{
+    background: teal !important;
+    border-radius:0px 16px 16px 0px !important;
+    border: none !important;
+    color:white;
+    height:45px;
+    width: 80px;
+    margin: 0 !important;
+    font-weight: 500;
+}
+
+.main
+{
+    display: grid !important;
+    grid-template-columns: 1fr 5fr ;
+    grid-template-rows: 310px 1fr ;
+}
+
+.categories
+{
+    grid-row: 1 / span 1 ;
+    grid-column: 1 / span 1;
+    padding-left: 35px !important;
+}
+.categories a
+{
+    color: black;
+}
+
+.articles
+{
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.category_element
+{
+    font-weight: 300;
+    font-size: 20px;
+    list-style: none;
+    margin-top: 8px;
+}
+
+.categories-item-mobile a{
+    font-weight: 300;
+    font-size: 15px;
+    list-style: none;
+    color: black;
+}
+
+.category-title
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.banner
+{
+    height: 310px;
+    width: auto;
+    display: grid;
+    grid-row: 1;
+    grid-column: 2 ;
+    grid-template-columns: 15% 50% 15% 20%;
+    grid-template-rows: 20% 60% 20%;
+    background-color: #e07a5f;
+    background: url('../img/banner-background.svg');
+}
+
+.banner-img
+{
+    grid-row: 2;
+    grid-column: 3;
+}
+
+.banner-text
+{
+    grid-row: 2;
+    grid-column: 2;
+    font-weight: 900;
+    font-size: 55px;
+    letter-spacing: 2px;
+    color:teal;
+}
+
+#banner-text-stroke
+{
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: teal;
+
+}
+
+#banner-text-noStroke
+{
+    padding-left: 18%;
+}
+
+
+.product-main
+{
+    height: 1000px;
+    display: grid;
+    grid-template-columns: 10% 30% 40% 20%;
+    grid-template-rows: 10% 70% 20%;
+}
+
+.categories-desktop{
+    display: block;
+}
+
+.categories-mobile{
+    display: none;
+}
+
+.menu-mobile{
+    display: none;
+}
+
+#cart_confirmation{
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+}
+
+@media only screen and (max-width: 480px){
+
+    .orders{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 10px;
+    }
+
+    #inputPassword, #inputEmail, #registration_form_email, #registration_form_plainPassword{
+        width: 300px;
+    }
+
+    .orders table,.orders thead,.orders tbody,.orders th,.orders td,.orders tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.orders thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.orders tr { border: 1px solid #ccc; }
+	
+	.orders td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+	}
+	
+	.orders td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+
+
+
+
+
+    .main
+    {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+
+    #cart_confirmation{
+        padding: 15px;
+        width: 100%;
+    }
+
+    .banner
+    {
+        display: none;
+    }
+
+    .articles{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .categories-desktop{
+        display: none;
+    }
+
+    .categories-mobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .product-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    }
+
+    .form-search{
+        width: 100px;
+        height: 36px;
+    }
+
+    .form-search-button{
+        height: 36px;
+    }
+
+    .menu-mobile{
+        display: block;
+    }
+
+
+}
+
+.product-imgblock
+{
+    grid-row: 2;
+    grid-column: 2/3;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.product-descBlock
+{
+    grid-row: 2/3;
+    grid-column: 3/4 ;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.carousel-custom
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    border: black 2px;
+}
+
+.loginBlock
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+}
+
+.loginBlock input
+{
+    width: 25%;
+}
+
+.registerBlock
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+    text-align: center;
+}
+
+.registerBlock input
+{
+    width: 450px;
+}
+
+
+.payment-button {
+
+    background: #5469d4;
+  
+    color: #ffffff;
+  
+    font-family: Arial, sans-serif;
+  
+    border-radius: 0 0 4px 4px;
+  
+    border: 0;
+  
+    padding: 12px 16px;
+  
+    font-size: 16px;
+  
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    display: block;
+  
+    transition: all 0.2s ease;
+  
+    box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  
+    width: 100%;
+  
+  }
+
+  .payment-form
+  {
+      width:300px;
+      height: auto;
+      padding: 15px;
+      padding-top: 20px;
+
+      border:outset 2px black;
+      border-radius: 10px;
+      background-color: white;
+  }
+
+  .payment-form button {
+      margin-top: 55px;
+      border-radius: 30px;
+  }
+
+  #card-element
+  {
+      border:solid 1px black
+  }

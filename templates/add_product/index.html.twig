@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+
+    <h1>Add product</h1>
+
+    {{ form_start(form) }}
+    
+    {{ form_widget(form) }}
+
+    <input type="submit" value="Add Item">
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

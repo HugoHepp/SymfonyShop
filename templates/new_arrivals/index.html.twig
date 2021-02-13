@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Arrivals{% endblock %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+    <div class="main">
+
+        {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %} 
+
+
+        <div class="articles" style="grid-row:1 ;">
+
+            <h1 style="margin-top: 80px">New Arrivals:</h1>
+            <hr>
+
+            <div class="row d-flex">
+                {% for product in productList %}
+                    <div class="col-3 mt-4">
+                        <div class="card" style="max-width: 20rem;">
+                            <div class="card-header">
+                                <img class="img-fluid" src={{product.img}} alt="picture of product">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{product.title}} - {{product.price | price}}$</h4>
+                                <p class="card-text">{{product.description}}</p>
+                                <a class="btn-detail btn" href="product/{{product.id}}">Details</a>
+                                <a class="btn" href="{{path('cart_add',{'id': product.id})}}">Add to cart</a>
+                            </div>
+                        </div>    
+                    </div> 
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

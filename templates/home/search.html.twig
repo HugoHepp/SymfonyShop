@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    {% include "navbar.html.twig" %}
+    <div class="main">
+
+        {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %} 
+
+        <div class="articles" style="grid-row:1; margin-left:15px;">
+
+            <h1 style="margin-top: 40px;">Result found for: {{productList[0].title}}</h1>
+            <hr>
+
+            <div class="row d-flex">
+
+                {% if productList | length == 0  %}
+            
+                    <h2>We didnt find any product that match</h2>
+
+                {% endif %}
+
+                <div class="articles">
+                    {% include "__articlesList.html.twig" with {'productList': productList} %} 
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}

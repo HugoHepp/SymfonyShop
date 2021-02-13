@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+
+{% include "navbar.html.twig" %}
+
+ <div class="main">
+
+    {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %} 
+
+    <div class="articles p-2 pt-4" style="grid-row:1 ;">
+   
+        <h1 class="pl-1">Cart</h1>
+
+        {% if items | length > 0 %}
+        
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>
+                                {{ item.product.title }}
+                            </td>
+                            <td>
+                                {{ item.product.price | price }}
+                            </td>
+                            <td>
+                            <a href="{{path('cart_decrement',{'id': item.product.id})}}" class="btn btn-sm">-</a>
+                                {{ item.qty }}
+                            <a href="{{path('cart_add',{'id': item.product.id})}}?returnToCart=true" class="btn btn-sm">+</a>
+                            </td>
+                            <td>
+                                {{ item.total | price }}
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" href='{{ path("cart_delete", {"id": item.product.id})}}'>Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan='3'>Total:</td>
+                        <td colspan='2'>{{total | price}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        {% if app.user %}
+            
+            <hr>
+
+            <h2 class="mt-5 mb-4 pl-1">Confirm order</h2>
+
+            {{ form_start(confirmationForm, {'action': path('purchase_confirm')}) }}
+
+            {{ form_widget(confirmationForm) }}
+
+            <button class="btn btn-success mb-5 mt-2 ml-2" type="submit">Confirm</button>
+
+            {{ form_end(confirmationForm) }}
+
+        {% else %}
+                
+            <h5 class="mt-4 mb-4 p-2 pt-4">You should be logged to confirm your order</h5>
+            
+            <a class="btn btn-success" href={{path('app_login')}}>Go to login</a>
+
+        {% endif %}
+
+        {% else %}
+
+            <h2 class="p-2 pt-4">Your cart is empty</h2>
+
+        {% endif %}
+
+    </div>
+    
+</div>
+
+
+{% endblock %}

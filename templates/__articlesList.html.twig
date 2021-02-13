@@ -1,0 +1,17 @@
+<div class="row d-flex">
+    {% for product in productList %}
+        <div class="col-md-3 col-12 mt-4 d-flex justify-content-center">
+            <div class="card" style="max-width: 20rem;">
+                <div class="card-header">
+                    <img class="img-fluid" src={{product.img}} alt="picture of product">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{product.title}} - {{product.price | price}}$</h4>
+                    <p class="card-text">{{product.description}}</p>
+                    <a class="btn-detail btn" href="{{path('product',{'id': product.id})}}">Details</a>
+                    <a class="btn" href="{{path('cart_add',{'id': product.id})}}">Add to cart</a>
+                </div>
+            </div>    
+        </div> 
+    {% endfor %}
+</div>

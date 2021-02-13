@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %}My orders{% endblock %}
+
+{% block body %}
+
+{% include "navbar.html.twig" %}
+
+
+<div class="main">
+
+    {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %}
+
+ {% if purchases | length == 0  %}
+
+    <h2 class="p-5">There is no order in your account</h2>
+
+ {% else %}
+
+
+        <div class="articles" style="grid-row:1 ;">
+            <div class="orders">
+
+                <h1 style="margin-top: 80px; margin-bottom:30px">Your previous orders:</h1>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Number</td>
+                            <td>Address</td>
+                            <td>Date</td>
+                            <td>Quantity</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in purchases %}
+                            <tr>
+                                <td>n°{{p.id}}</td>
+                                <td>{{p.adress}}<br>{{p.postalCode}}, {{p.city}}</td>
+                                <td>{{p.purchasedAt.format('d/m/Y')}}</td>
+                                <td>
+                                    <ul class="p-0">
+                                    {% for item in p.purchaseItems %}
+                                        <li>{{item.quantity}} x {{item.productTitle}} : {{item.total | price}}$</li>
+                                    {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>{{p.total}}$</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+
+{% endif %}
+
+
+{% endblock %}

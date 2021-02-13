@@ -1,0 +1,28 @@
+<div class="categories-desktop">
+    <div class="categories pt-4 pl-3">
+        <p class="category-title">Categories:</p>
+        <ul>
+        {% for category in categoryList %}
+            <a href="{{path('category', {'id' : category.id})}}"><li class="category_element">{{category.title}}</li></a>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="categories-mobile m-4">
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for category in categoryList %}
+            <li class="m-3 categories-item-mobile"><a href="{{path('category', {'id' : category.id})}}">{{category.title}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <form class="form" action="/search" action="GET">
+         <input class="form-search" name="item" value="" placeholder="Search..">
+        <button class="form-search-button" type="submit">Search</button>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-Market{% endblock %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+    <div class="main">
+
+        {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %} 
+
+        <div class="banner">
+            <p class="banner-text"><span id="banner-text-stroke">Bought yersteday,</span><br><span id="banner-text-noStroke">delivered today</span></p>
+            <img src="{{ asset('img/banner.svg') }}" class="banner-img img-fluid" alt="banner">
+        </div>
+
+
+        <div class="articles">
+
+            <h1 style="margin-top: 20px; margin-left: 30px">Best Sellers:</h1>
+            <hr>
+
+            {% include "__articlesList.html.twig" with {'productList': productList} %} 
+        </div>
+
+    </div>
+
+
+{% endblock %}

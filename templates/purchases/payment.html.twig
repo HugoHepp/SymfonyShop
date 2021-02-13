@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Payment with Stripe
+{% endblock %}
+
+{% block body %}
+
+{% include "navbar.html.twig" %}
+
+   <div class="main">
+
+        {% include "__categoriesSidebox.html.twig" with {'categoryList': categoryList} %}
+
+        <div class="articles pl-5" style="grid-row:1 ;">
+
+            <h2 style="margin-top: 80px">Secure payment with Stripe</h2>
+            <hr>
+
+            <form id="payment-form" class="payment-form">
+
+               <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+
+                <p id="card-error" role="alert"></p>
+
+                <button class="payment-button" id="submit">
+
+                   <div class="spinner hidden" id="spinner"></div>
+
+                  <span id="button-text">Validate payment</span>
+
+                </button>
+      
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+ <script src="https://js.stripe.com/v3/"></script>
+ <script>
+    const clientSecret = '{{ clientSecret }}'
+    const stripePublicKey = "{{ stripePublicKey }}";
+    const redirectAfterSuccessUrl = "{{   url('purchase_payment_success', {'id' : purchase.id })  }}"
+ </script>
+ <script src="/js/payment.js"></script>
+
+{% endblock %}
